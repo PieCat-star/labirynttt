@@ -6,6 +6,13 @@ public class GameManager : MonoBehaviour
 {
     public static GameManager gameManager;
     public int timeToEnd;
+    public int points;
+    public float speedModifier=1f;
+
+    public int redKey;
+    public int greenKey;
+    public int goldenKey;
+
     bool gamePaused = false;
     bool win = false;
 
@@ -17,6 +24,50 @@ public class GameManager : MonoBehaviour
             gameManager = this;
         }
         InvokeRepeating(nameof(Stopper), 1f, 1f);
+    }
+    public void AddTime(int time)
+    {
+        timeToEnd += time;
+        Debug.Log("Time to end: " + timeToEnd + "s");
+    }
+    public void AddPoints(int point)
+    {
+        points += point;
+        Debug.Log("Points: " + points);
+    }
+
+    public void AddKey(KeyType color)
+    {
+       if(color == KeyType.Red)
+        {
+            redKey++;
+            Debug.Log("Red Key: " + redKey);
+        }
+        else if (color == KeyType.Green)
+        {
+            greenKey++;
+            Debug.Log("Green Key: " + greenKey);
+        }
+        else if (color == KeyType.Golden)
+        {
+            goldenKey++;
+            Debug.Log("Golden Key: " + goldenKey);
+        }
+
+    }
+    public void FreezeTime(int freeze)
+    {
+        CancelInvoke(nameof(Stopper));
+        InvokeRepeating(nameof(Stopper), freeze, 1f);   
+    }
+    public void ResetSpeed()
+    {
+        speedModifier = 1f;
+    }
+    public void SetSpeedModifier(float value, int duration)
+    {
+        speedModifier = value;
+        Invoke(nameof(ResetSpeed), duration);
     }
     private void Update()
     {
