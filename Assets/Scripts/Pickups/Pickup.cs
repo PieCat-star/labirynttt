@@ -2,7 +2,9 @@ using UnityEngine;
 
 public class Pickup : MonoBehaviour
 {
-    public int rotationSpeed = 100;
+    public int rotationSpeedx = 100;
+    public int rotationSpeedy = 100;
+    public int rotationSpeedz = 100;
     public virtual void PickedUp()
     {
         Debug.Log("Picked up " + gameObject.name);
@@ -10,7 +12,8 @@ public class Pickup : MonoBehaviour
     }
     public void Rotate()
     {
-        transform.Rotate(new Vector3(rotationSpeed * Time.deltaTime, 0f,0f));
+        transform.Rotate(new Vector3(rotationSpeedx * Time.deltaTime,
+         rotationSpeedy * Time.deltaTime,rotationSpeedz * Time.deltaTime));
     }
     private void Update()
     {
