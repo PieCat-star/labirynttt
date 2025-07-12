@@ -1,5 +1,7 @@
+using System.Drawing;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.WSA;
 
 public class Unlock : MonoBehaviour
 {
@@ -7,11 +9,17 @@ public class Unlock : MonoBehaviour
     public KeyType myType;
     bool canOpen;
     bool unlocked;
+    public Renderer lockRenderer;
+
+    public Material red;
+    public Material green;
+    public Material golden;
 
     Animator key;
     private void Start()
     {
         key = GetComponent<Animator>();
+        SetColor();
     }
 
     private void OnTriggerEnter(Collider other)
@@ -35,6 +43,23 @@ public class Unlock : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.E) && canOpen && !unlocked)
         {
             key.SetBool("useKey", CheckKey());
+        }
+    }
+    
+
+    void SetColor()
+    {
+        switch (myType)
+        {
+            case KeyType.Red:
+                GetComponent<Renderer>().material = red;
+                break;
+            case KeyType.Green:
+                GetComponent<Renderer>().material = green;
+                break;
+            case KeyType.Golden:
+                GetComponent<Renderer>().material = golden;
+                break;
         }
     }
     public void UseKey()

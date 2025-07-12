@@ -478,3 +478,12 @@ MonoBehaviour:
   doors:
   - {fileID: 4569973949445464654}
   myType: 0
+  lockRenderer: {fileID: 5784643590526696406}
+  red: {fileID: 2100000, guid: ef44170836ac19a4ab8e97e3c872e1d9, type: 2}
+  green: {fileID: 2100000, guid: 096d24ee5cc0a9242b8196557efe6bdf, type: 2}
+  golden: {fileID: 2100000, guid: 088b9aa60d8c68b40a50b6e89b6574ed, type: 2}
+--- !u!23 &5784643590526696406 stripped
+MeshRenderer:
+  m_CorrespondingSourceObject: {fileID: -7511558181221131132, guid: 296ce2d4e6363f14da47dfc6e6144ac0, type: 3}
+  m_PrefabInstance: {fileID: 5154012516790560594}
+  m_PrefabAsset: {fileID: 0}

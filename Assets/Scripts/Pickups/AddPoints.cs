@@ -6,6 +6,7 @@ public class AddPoints : Pickup
 
     public override void PickedUp()
     {
+        GameManager.gameManager.PlayAudioClip(pickupSound);
         base.PickedUp();
         GameManager.gameManager.AddPoints(additionalPoints);
     }

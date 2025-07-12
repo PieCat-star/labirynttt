@@ -125,7 +125,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1563edc6014aacb4893d77d712bd0df8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  pickupSound: {fileID: 8300000, guid: 27a27eb1bb7f6984384903ed5f67ac65, type: 3}
   rotationSpeedx: 0
   rotationSpeedy: 0
   rotationSpeedz: 100
   color: 2
+  red: {fileID: 2100000, guid: ef44170836ac19a4ab8e97e3c872e1d9, type: 2}
+  green: {fileID: 2100000, guid: 096d24ee5cc0a9242b8196557efe6bdf, type: 2}
+  golden: {fileID: 2100000, guid: 088b9aa60d8c68b40a50b6e89b6574ed, type: 2}

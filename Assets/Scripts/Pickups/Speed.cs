@@ -7,6 +7,7 @@ public class Speed : Pickup
     public override void PickedUp()
     {
         base.PickedUp();
+        GameManager.gameManager.PlayAudioClip(pickupSound);
         GameManager.gameManager.SetSpeedModifier(speedModifier, time);
     }
 }

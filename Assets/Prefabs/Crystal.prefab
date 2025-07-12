@@ -100,6 +100,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a70ddc957fe360b48aaa0a563b8bdccb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  pickupSound: {fileID: 8300000, guid: d643c515dcbbbd44d8e0882cd9fa519a, type: 3}
   rotationSpeedx: 0
   rotationSpeedy: 0
   rotationSpeedz: 100

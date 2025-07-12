@@ -16,6 +16,15 @@ public class GameManager : MonoBehaviour
     bool gamePaused = false;
     bool win = false;
 
+    AudioSource soundSource;
+
+    public AudioClip resumeClip;
+    public AudioClip pauseClip;
+    public AudioClip winClip;
+    public AudioClip loseClip;
+
+    public MusicManager musicManager;   
+
 
     private void Start()
     {
@@ -24,6 +33,8 @@ public class GameManager : MonoBehaviour
             gameManager = this;
         }
         InvokeRepeating(nameof(Stopper), 1f, 1f);
+        soundSource = GetComponent<AudioSource>();
+        musicManager = GetComponentInChildren<MusicManager>();
     }
     public void AddTime(int time)
     {
@@ -94,10 +105,12 @@ public class GameManager : MonoBehaviour
         if (win)
         {
             Debug.Log("You Win! Reload?");
+            PlayAudioClip(winClip);
         }
         else
         {
             Debug.Log("You Lose! Reload?");
+            PlayAudioClip(loseClip);
         }
     }
     void ReloadCheck()
@@ -123,14 +136,24 @@ public class GameManager : MonoBehaviour
     }
     public void PauseGame()
     {
+
         Debug.Log("Game Paused");
+        musicManager.OnPauseGame();
+        PlayAudioClip(pauseClip);
         gamePaused = true;
         Time.timeScale = 0f;
     }
     public void ResumeGame()
     {
         Debug.Log("Game Resumed");
+        musicManager.OnResumeGame();
+        PlayAudioClip(resumeClip);
         gamePaused = false;
         Time.timeScale = 1f;
+    }
+    public void PlayAudioClip(AudioClip _clip)
+    {
+        soundSource.clip = _clip;
+        soundSource.Play();
     }
 }
