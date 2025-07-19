@@ -28,6 +28,7 @@ public class Unlock : MonoBehaviour
         {
             canOpen = true;
             Debug.Log("You can open the door");
+            GameManager.gameManager.useInfo.text = "Press E to open the door";
         }
     }
     private void OnTriggerExit(Collider other)
@@ -36,6 +37,7 @@ public class Unlock : MonoBehaviour
         {
             canOpen = false;
             Debug.Log("You cannot open the door");
+            GameManager.gameManager.useInfo.text = "";
         }
     }
     private void Update()
@@ -75,18 +77,21 @@ public class Unlock : MonoBehaviour
         {
            unlocked = true;
             GameManager.gameManager.redKey--;
+            GameManager.gameManager.redKeyText.text=GameManager.gameManager.redKey.ToString();
             return true;
         }
         else if (GameManager.gameManager.greenKey > 0 && myType == KeyType.Green)
         {
             unlocked = true;
             GameManager.gameManager.greenKey--;
+            GameManager.gameManager.greenKeyText.text = GameManager.gameManager.greenKey.ToString();
             return true;
         }
         else if (GameManager.gameManager.goldenKey > 0 && myType == KeyType.Golden)
         {
             unlocked = true;
             GameManager.gameManager.goldenKey--;
+            GameManager.gameManager.goldenKeyText.text = GameManager.gameManager.goldenKey.ToString();
             return true;
         }
         Debug.Log("You do not have the key to unlock this door");
